@@ -397,7 +397,7 @@ page(p => {
   y = p.header('Germ Safety Rules', { y: y + h + 14 });
   const gy = y;
   y = p.card({ y, tint: 'amber', rightSpace: 62, items: [
-    '**Wash your hands** before and after you help.',
+    '**Wash your hands** before and after you help. Use **soap and water** if they look dirty, or use **alcohol-based hand sanitizer**.',
     '**Wear gloves** if there is blood. No gloves? Let the hurt person press on their own cut with a cloth.',
     '**Cover your own cuts** first.',
     '**Don’t touch** the part of the bandage that goes on the cut.'] });
@@ -453,7 +453,8 @@ page(p => {
     'Bad head, neck, or back injury',
     'Big burn or any fire',
     'Swollen lips or throat (bad allergy)',
-    'Swallowed poison and feels sick'] });
+    'Swallowed poison and feels sick',
+    '**Any situation you do not feel comfortable managing**'] });
   y = p.card({ y: y + 8, title: 'Get an Adult', tint: 'amber', numbered: false, items: [
     'Maybe a sprain or broken bone',
     'Animal bite or tick bite',
@@ -527,13 +528,14 @@ page(p => {
     '**Hands at the throat** (the choking sign)',
     '**Can’t breathe, talk, or cough**, or lips turning blue'] });
   const fw = (PW - 2 * M - 8) / 2;
-  figBackBlows(p, M, y + 7, fw);
-  figThrusts(p, M + fw + 8, y + 7, fw);
-  p.card({ y: y + 127, title: 'The “5-and-5” Rescue', tag: 'Age 1 to Adult', tint: 'white', items: [
+  figBackBlows(p, M, y + 6, fw);
+  figThrusts(p, M + fw + 8, y + 6, fw);
+  y = p.note(y + 125, '{{Alternate between 5 back blows and 5 abdominal thrusts}} until the object comes out or they can breathe.', 'red');
+  p.card({ y: y + 6, title: 'How to Give Back Blows & Abdominal Thrusts', tag: 'Age 1 to Adult', tint: 'white', items: [
     '**Ask, “Are you choking?”** If they nod, tell someone to **call 9-1-1**.',
     '**5 Back Blows:** Stand behind and a little to the side. Lean them forward. Hit firmly **between the shoulder blades** with the heel of your hand.',
     '**5 Abdominal Thrusts:** Stand behind. Make a fist just **above the bellybutton**, grab it with your other hand, and pull **in and up** fast.',
-    '**Keep switching** 5 and 5 until the object comes out.',
+    '**Keep alternating** 5 back blows and 5 abdominal thrusts.',
     '**If they pass out,** lower them to the floor and make sure 9-1-1 is coming.'] });
   p.footer('Choking: Kids & Adults');
 });
@@ -546,7 +548,7 @@ page(p => {
     '**Sit down.** Lay the baby **face-down on your arm**, holding the jaw. Keep the **head lower** than the chest.',
     '**5 Back Blows** between the shoulder blades with the heel of your hand.',
     '**Turn the baby face-up**, head still low.',
-    '**5 Chest Thrusts** in the center of the chest with the **heel of one hand**.',
+    '**5 Chest Thrusts** in the center of the chest using the **heel of one hand** (instead of two fingers).',
     '**Repeat** 5 and 5. {{Call 9-1-1.}}'] });
   figBaby(p, PW - M - 120, 82);
   p.text('Helping With Little Kids: Stop Choking Before It Starts', PW / 2, y + 22, 10.5, 'F2', DKGREEN, 'center', PW - 2 * M);
@@ -569,9 +571,10 @@ page(p => {
     '**Cover it** with a bandage.'] });
   figBandage(p, PW - M - 62, cy + 32);
   y = p.card({ y: y + 8, title: 'Deep Cut or Lots of Blood', tag: 'Adult / 9-1-1', tint: 'red', items: [
-    '**Get help!** Have the person sit or lie down.',
-    '**Press hard** on the cut with a clean cloth, and **keep pressing**.',
+    '**Get help and call 9-1-1!** Have the person sit or lie down.',
+    '**Press hard** on the cut with a clean cloth for **at least 10–15 minutes** without stopping.',
     '**Blood soaks through?** {{Don’t take the cloth off.}} Put another cloth on top and keep pressing.',
+    '**Arm or leg still bleeding heavily?** If firm pressure doesn’t stop it, a trained adult may need to use a **tourniquet**.',
     '**Something stuck in the cut?** Don’t pull it out. Get help.'] });
   y = p.header('Nosebleed', { y: y + 12 });
   const ny = y;
@@ -587,25 +590,29 @@ page(p => {
 // ---- 10. BURNS & SUNBURN ----
 page(p => {
   let y = p.header('Burns');
-  y = p.card({ y, title: 'Small Burn', tint: 'green', items: [
+  y = p.card({ y, title: '1st, 2nd & 3rd Degree Burns', tint: 'amber', numbered: false, fs: 9.3, lh: 11.4, items: [
+    '**1st Degree (mild):** Red, sore skin with **no blisters** (like a mild sunburn).',
+    '**2nd Degree (medium):** Red, very painful, and **has blisters**.',
+    '**3rd Degree (severe):** Deep burn; skin looks **white, brown, or charred**.',
+    '@@Rule:@@ Only treat **small 1st- and 2nd-degree burns** yourself. **Large burns or any 3rd-degree burn** need immediate medical care ({{call 9-1-1}}).'] });
+  y = p.card({ y: y + 5, title: 'Small Minor Burn (1st or Small 2nd Degree)', tint: 'green', fs: 9.3, lh: 11.4, items: [
     '**Get away from the heat.**',
     '**Cool it under cool running water** for at least 10 minutes.',
     '**Take off rings or tight things** before it swells.',
     '**Cover it loosely** with a clean, non-stick bandage.'] });
-  y = p.card({ y: y + 7, title: '3 Burn Rules', tint: 'red', numbered: false, items: [
+  y = p.card({ y: y + 5, title: '3 Burn Rules', tint: 'red', numbered: false, fs: 9.3, lh: 11.4, items: [
     '{{No ice}} — it hurts the skin more.',
     '{{No butter, oil, or toothpaste}} — they hold the heat in.',
     '{{Don’t pop blisters}} — they keep germs out.'] });
-  y = p.card({ y: y + 7, title: 'Big Burns & Fire', tag: 'Call 9-1-1', tint: 'red', numbered: false, items: [
+  y = p.card({ y: y + 5, title: 'Big or 3rd-Degree Burns & Fire', tag: 'Call 9-1-1', tint: 'red', numbered: false, fs: 9.3, lh: 11.4, items: [
     '**Clothes on fire?** {{Stop, Drop, and Roll!}}',
-    '**Call 9-1-1** for big burns, burns on the face, hands, or feet, or burns from electricity or chemicals.',
+    '**Call 9-1-1** for any 3rd-degree burn, large burn, burn on the face, hands, or feet, or burn from electricity or chemicals.',
     '**Cover loosely** with a clean, dry cloth.'] });
-  y = p.header('Sunburn', { y: y + 12 });
-  p.card({ y, tint: 'amber', items: [
-    '**Get into the shade.**',
-    '**Cool the skin** with a cool, damp cloth.',
+  y = p.header('Sunburn', { y: y + 7 });
+  p.card({ y, tint: 'amber', fs: 9.3, lh: 11.4, items: [
+    '**Get into the shade** and cool the skin with a cool, damp cloth.',
     '**Use aloe gel** and drink lots of water.',
-    '**Next time:** sunscreen (SPF 30+) and a hat. Put more sunscreen on every 2 hours.'] });
+    '**Next time:** sunscreen (SPF 30+) and a hat. Reapply every 2 hours.'] });
   p.footer('Burns & Sunburn');
 });
 
@@ -616,7 +623,7 @@ page(p => {
     '**Cold pack** wrapped in a cloth for 15–20 minutes. Never put ice right on skin.',
     '**Very big or very painful?** Tell an adult.'] });
   y = p.header('Sprains (Twisted Ankle or Wrist)', { y: y + 10 });
-  const ry = y, rh = 14 + 2 * 56;
+  const ry = y, rh = 14 + 2 * 56 + 26;
   p.rrect(M, ry, PW - 2 * M, rh, 6, TINT.green.bg, GREEN, 1.4);
   const rice = [['R', 'REST', 'Stop. Don’t stand or walk on it.'], ['I', 'ICE', 'Cold pack in a cloth, 15–20 minutes.'],
     ['C', 'COMPRESS', 'Wrap it snugly with an elastic bandage.'], ['E', 'ELEVATE', 'Prop it up higher than the heart.']];
@@ -629,6 +636,8 @@ page(p => {
     p.text(wd, x + 27, yy + 17, 10, 'F2', DKGREEN);
     p.para(t, x + 7, yy + 32, cw - 14, 9.5, 11.5);
   });
+  p.para('**Short-term care:** R.I.C.E. is for **right after** the injury. Have an adult **follow up with a doctor or healthcare provider** for injury-specific care.',
+    M + 9, ry + 14 + 112 + 4, PW - 2 * M - 18, 9.1, 11.2);
   y = p.header('Broken Bones', { y: ry + rh + 10, red: true, tag: 'Get an Adult' });
   p.card({ y, tint: 'red',
     intro: '**It might be broken if** it looks bent, swells fast, hurts a lot, or they can’t move it.', items: [
@@ -734,7 +743,7 @@ page(p => {
   y = p.header('Heat Exhaustion & Heat Stroke', { y: y + 10, red: true });
   y = p.cards2(y,
     { title: 'Heat Exhaustion', tint: 'amber', fs: 9.6, lh: 12.2,
-      intro: '**Signs:** sweaty, pale, dizzy, headache, tired.', items: [
+      intro: '**Signs:** sweaty, pale, dizzy, headache, tired, **fast heart rate, fast breathing, muscle cramps**.', items: [
       'Move to the **shade**.', '**Sip cool water.**', 'Put **cool, wet cloths** on the neck.'] },
     { title: 'Heat Stroke', tag: '9-1-1', tint: 'red', fs: 9.6, lh: 12.2,
       intro: '**Signs:** very hot skin, **confused or acting strange**, passes out.', items: [
@@ -769,7 +778,7 @@ page(p => {
     M + 9, sy + 14 + 104 + 6, PW - 2 * M - 18, 9.2, 11.4);
 
   const ty = p.header('First Aid Cheat Sheet', { y: sy + sh + 10 });
-  const rows = [['Bleeding', 'Press hard with a clean cloth. Keep pressing.'], ['Nosebleed', 'Lean forward. Pinch the soft part 10–15 min.'],
+  const rows = [['Bleeding', 'Press hard with a clean cloth for 10–15 min.'], ['Nosebleed', 'Lean forward. Pinch the soft part 10–15 min.'],
     ['Burn', 'Cool water 10+ min. No ice, no butter.'], ['Sprain', 'R.I.C.E.: Rest, Ice, Compress, Elevate.'],
     ['Choking (kid)', '5 back blows + 5 abdominal thrusts. Repeat.'], ['Choking (baby)', '5 back blows + 5 chest thrusts. Repeat.'],
     ['Shock', 'Call 9-1-1. Lie down, raise feet, keep warm.'], ['Lost outdoors', 'S.T.O.P. and blow 3 whistle blasts.']];
